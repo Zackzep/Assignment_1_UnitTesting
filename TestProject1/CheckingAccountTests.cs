@@ -20,23 +20,27 @@ namespace Assignment_1_UnitTesting.Tests
         [TestMethod()]
         public void DepositTest()
         {
-            double number = 5;
-            double result = _checkingAccount.Deposit(number);
+			double number = 5;
+			double startingValue = _checkingAccount.Balance;
+			double expectedResult = _checkingAccount.Balance + 5;
 
-            Assert.IsTrue(result == number);
+			_checkingAccount.Deposit(number);
+			double result = _checkingAccount.Balance;
 
-            Assert.IsFalse(result != number);
-        }
+			Assert.IsTrue(result == expectedResult);
+		}
 
         [TestMethod()]
         public void WithdrawTest()
         {
-            double number = 5;
-            double result = _checkingAccount.Withdraw(number);
+			double number = 5;
+			double startingValue = _checkingAccount.Balance;
+			double expectedResult = _checkingAccount.Balance - 5;
 
-            Assert.IsTrue(result == number);
+			_checkingAccount.Withdraw(number);
+			double result = _checkingAccount.Balance;
 
-            Assert.IsFalse(result != number);
-        }
+			Assert.IsTrue(result == expectedResult);
+		}
     }
 }

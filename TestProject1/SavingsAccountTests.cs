@@ -20,23 +20,36 @@ namespace Assignment_1_UnitTesting.Tests
         [TestMethod()]
         public void WithdrawTest()
         {
+			
             double number = 5;
-            double result = _savingsAccount.Withdraw(number);
+			double startingValue = _savingsAccount.Balance;
+			double expectedResult = _savingsAccount.Balance - 5;
 
-            Assert.IsTrue(result == number);
+			_savingsAccount.Withdraw(number);
+			double result = _savingsAccount.Balance;
 
-            Assert.IsFalse(result != number);
+			Assert.IsTrue(result == expectedResult);
+
+            
         }
 
         [TestMethod()]
         public void DepositTest()
         {
+            // Arrange
             double number = 5;
-            double result = _savingsAccount.Deposit(number);
+            double startingValue = _savingsAccount.Balance;
+            double expectedResult = _savingsAccount.Balance + 5;
 
-            Assert.IsTrue(result == number);
+			//ACT
+			// Your trying to get the result AFTER you've deposited - ACT
+			_savingsAccount.Deposit(number);
+            double result = _savingsAccount.Balance;
 
-            Assert.IsFalse(result != number);
+            // Assert
+            Assert.IsTrue(result == expectedResult);
+
+            
         }
     }
 }

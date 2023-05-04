@@ -8,25 +8,31 @@ namespace Assignment_1_UnitTesting
 {
     public abstract class Account
     {
-        double _balance;
+        public double _balance = 300;
 
         protected Account(double balance)
         {
             _balance = balance;
         }
+        public Account()
+        {
+
+        }
 
         public double Balance { get => _balance; protected set => _balance = value; }
-    }
 
-    abstract void Deposit(double value)
-    {
-        double newBalance = Balance += value;
-        return newBalance;
+        public abstract void Deposit(double value);
+
+        
+
+
+
+        public abstract bool Withdraw(double amount);
+        
+            
         
     }
-    abstract void Withdraw(double amount)
-    {
-        double newBalance = Balance -= amount;
-        return newBalance;
-    }
+
+    
+    
 }

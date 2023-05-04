@@ -10,13 +10,14 @@ namespace Assignment_1_UnitTesting
     {
         double _overdraftFee = 25;
 
-        public CheckingAccount()
-        {
-        }
+       
 
         public CheckingAccount(double balance) : base(balance)
         {
         }
+        public CheckingAccount() {
+        }
+
         public override void Deposit(double value)
         {
             double newValue = Balance += value;

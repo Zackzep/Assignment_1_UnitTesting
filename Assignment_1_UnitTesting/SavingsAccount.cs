@@ -9,7 +9,12 @@ namespace Assignment_1_UnitTesting
     public class SavingsAccount : Account
     {
         
+
         public SavingsAccount(double balance) : base(balance)
+        {
+
+        }
+        public SavingsAccount()
         {
 
         }
